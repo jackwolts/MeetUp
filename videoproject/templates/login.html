@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+</head>
+<body style="background-image:url('{% static 'hero-img.jpg' %}'); background-repeat:no-repeat;background-size: 100%;">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+     .box input[type="text"],
+    .box input[type="password"] {
+      width: 25%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border:none;
+      outline:none;
+      border-radius: 30px;
+
+
+    }
+
+        h2 {
+            text-align: center;
+            color:#FFFFFF;
+        }
+
+
+  </style>
+<body>
+
+<div class="box">
+  <div class="container">
+      <div class="text-center">
+      <h2 style="font-size:40px">Login</h2>
+  <form  method="post">
+    {% csrf_token %}
+
+    <input type="text" name="username" placeholder="Enter your Username"><br>
+    <input type="password" name="password" placeholder="Enter your password"><br>
+    <input type="submit" class="btn btn-success">
+      <a href="{% url 'register' %}">
+      <button type="button" class="btn btn-danger">Register Now</button>
+          </a>
+
+  </form>
+          {% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+</div>
+    </div>
+  </div>
+</body>
+</html>

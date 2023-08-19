@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join Meeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            padding: 5px;
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 100px;
+            color:#FFFFFF;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 379px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+             margin-top: 5px;
+            padding: 10px;
+            background-color: #008000;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #008000;
+        }
+    </style>
+</head>
+<body style="background-image:url('{% static 'back.jpg' %}'); background-repeat:no-repeat;background-size: 100%;">
+    <h1>Join Room</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="roomID">Room ID</label>
+        <input type="text" id="roomID" name="roomID" required>
+        <br>
+        <button type="submit">Join</button>
+    </form>
+</body>
+</html>
